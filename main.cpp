@@ -13,11 +13,11 @@ uintptr_t g_base;
 uintptr_t g_size;
 std::unique_ptr<char[]> g_data;
 
-uintptr_t g_register_native = 0x15E4230;
-uintptr_t g_register_native_2 = 0x15E3298;
-uintptr_t g_system = 0x15E3F98;
-uintptr_t g_namespaces_start = 0xA4BD67;
-uintptr_t g_namespaces_end = 0xA4C010;
+uintptr_t g_register_native = 0x15F4CEC;
+uintptr_t g_register_native_system = 0x15F3DC0;
+uintptr_t g_system = 0x15F4A54;
+uintptr_t g_namespaces_start = 0xA4BB63;
+uintptr_t g_namespaces_end = 0xA4BE0C;
 std::vector<uintptr_t> g_namespaces;
 
 std::vector<std::vector<uintptr_t>> g_dump_hashes;
@@ -32,7 +32,7 @@ std::vector<uintptr_t> get_hashes(uintptr_t index)
         {
             return result;
         }
-        if (index == g_register_native_2) // namespace system end
+        if (index == g_register_native_system) // namespace system end
         {
             return result;
         }
@@ -63,8 +63,9 @@ std::vector<uintptr_t> get_hashes(uintptr_t index)
             index += *(int*)(g_data.get() + index + 1) + 5;
             continue;
         }
-        if (g_data.get()[index] == '\x48' && g_data.get()[index + 1] == '\x8D' && g_data.get()[index + 2] == '\x15' ||
-            g_data.get()[index] == '\x4C' && g_data.get()[index + 1] == '\x8D' && g_data.get()[index + 2] == '\x05')
+        if (g_data.get()[index] == '\x48' && g_data.get()[index + 1] == '\x8D' && g_data.get()[index + 2] == '\x15'
+            || g_data.get()[index] == '\x4C' && g_data.get()[index + 1] == '\x8D' && g_data.get()[index + 2] == '\x05'
+            )
         {
             index += 7;
             continue;
