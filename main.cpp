@@ -13,11 +13,11 @@ uintptr_t g_base;
 uintptr_t g_size;
 std::unique_ptr<char[]> g_data;
 
-uintptr_t g_register_native = 0x15F4CEC;
-uintptr_t g_register_native_system = 0x15F3DC0;
-uintptr_t g_system = 0x15F4A54;
-uintptr_t g_namespaces_start = 0xA4BB63;
-uintptr_t g_namespaces_end = 0xA4BE0C;
+uintptr_t g_register_native = 0x15F58A4;
+uintptr_t g_register_native_system = 0x15F4978;
+uintptr_t g_system = 0x15F560C;
+uintptr_t g_namespaces_start = 0xA4B247;
+uintptr_t g_namespaces_end = 0xA4B4F0;
 std::vector<uintptr_t> g_namespaces;
 
 std::vector<std::vector<uintptr_t>> g_dump_hashes;
